@@ -1,0 +1,10 @@
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.exe.config
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.exe
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.pdb
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csprojResolveAssemblyReference.cache
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard_pc_data_creator.Form1.resources
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard_pc_data_creator.Properties.Resources.resources
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csproj.GenerateResource.cache
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csproj.CoreCompileInputs.cache
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.exe
+E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.pdb

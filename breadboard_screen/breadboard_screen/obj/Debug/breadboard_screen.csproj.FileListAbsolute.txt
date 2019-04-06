@@ -1,0 +1,10 @@
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\bin\Debug\breadboard_screen.exe.config
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\bin\Debug\breadboard_screen.exe
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\bin\Debug\breadboard_screen.pdb
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.csprojAssemblyReference.cache
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.Form1.resources
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.Properties.Resources.resources
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.csproj.GenerateResource.cache
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.csproj.CoreCompileInputs.cache
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.exe
+C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.pdb
