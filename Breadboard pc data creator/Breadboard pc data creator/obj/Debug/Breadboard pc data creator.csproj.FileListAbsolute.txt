@@ -8,3 +8,13 @@ E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creato
 E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csproj.CoreCompileInputs.cache
 E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.exe
 E:\Dokument\Programering\C#\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.pdb
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csprojAssemblyReference.cache
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard_pc_data_creator.Form1.resources
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard_pc_data_creator.Properties.Resources.resources
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csproj.GenerateResource.cache
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.csproj.CoreCompileInputs.cache
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.exe
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\obj\Debug\Breadboard pc data creator.pdb
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.exe.config
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.exe
+C:\Users\Oskar\Documents\8-bit_computer\Breadboard pc data creator\Breadboard pc data creator\bin\Debug\Breadboard pc data creator.pdb

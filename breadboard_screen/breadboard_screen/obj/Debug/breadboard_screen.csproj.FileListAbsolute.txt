@@ -8,3 +8,5 @@ C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadb
 C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.csproj.CoreCompileInputs.cache
 C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.exe
 C:\Users\Oskar\source\repos\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.pdb
+C:\Users\Oskar\Documents\8-bit_computer\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.exe
+C:\Users\Oskar\Documents\8-bit_computer\breadboard_screen\breadboard_screen\obj\Debug\breadboard_screen.pdb

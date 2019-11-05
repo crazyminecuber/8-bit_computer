@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
-
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Breadboard_pc_data_creator
 {
@@ -48,12 +50,14 @@ namespace Breadboard_pc_data_creator
         const int maxFlag = 4;
         int instNr = 0;
 
-
+        string NAMEBASE = "EEPROM";
 
         public Form1()
         {
             InitializeComponent();
         }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -102,7 +106,9 @@ namespace Breadboard_pc_data_creator
             tbxB.Text = TextaData(instruktioner, 1);
             tbxC.Text = TextaData(instruktioner, 2);
             tbxBigAdd.Text = TextaAddresserBin(instruktioner);
-
+            FileOutput(0, DeepClone(instruktioner));
+            FileOutput(1, DeepClone(instruktioner));
+            FileOutput(2, DeepClone(instruktioner));
         }
 
         string TextaAddresser(List<Instruktion> instruktioner) 
@@ -120,7 +126,73 @@ namespace Breadboard_pc_data_creator
             }
             return svar;
         }
+        void WriteBytes(string filename, List<byte> data)
+        {
+            using (FileStream stream = new FileStream(filename, FileMode.Create))
+            {
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                {
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        writer.Write(data[i]);
+                    }
+                    writer.Close();
+                }
+            }
 
+        }
+
+        byte GetByte(int nr, int kontroll)
+        {
+            string data = Convert.ToString(kontroll, 2).PadLeft(maxSignaler, '0');
+
+            string formattedData = data.Substring(nr * 8, 8);
+            byte tal = Convert.ToByte(formattedData, 2);
+            return tal;
+        }
+
+        void FileOutput(int nr, List<Instruktion> instruktioner)
+        {
+          
+            int currentAddress = 0;
+            bool Break = false;
+            List<byte> bytelist = new List<byte>();
+            while (instruktioner.Count > 0)
+            {
+                // try
+                // {
+                foreach (Instruktion instr in instruktioner)
+                {
+                    foreach (MicroInstruktion micr in instr.mictroinstuktioner)
+                    {
+                        if (micr.address == currentAddress)
+                        {
+                            bytelist.Add(GetByte(nr, micr.kontroll));
+                            currentAddress++;
+
+                            instr.mictroinstuktioner.Remove(micr);
+                            if (instr.mictroinstuktioner.Count == 0)
+                            {
+                                instruktioner.Remove(instr);
+                                Break = true;
+                            }
+                            break;
+                        }
+                    }
+                    if (Break)
+                    {
+                        Break = false;
+                        break;
+                    }
+
+                }
+                // }
+                // catch { }
+            }
+
+            WriteBytes(NAMEBASE + nr.ToString() + ".hex", bytelist);
+
+        }
 
 
         string TextaAddresserBin(List<Instruktion> instruktioner)
@@ -206,8 +278,8 @@ namespace Breadboard_pc_data_creator
 
 
 
-        
 
+        [Serializable]
         //klassen för en instruktion som sammanfattar allt på ett bra sätt. Varje instruktion har samma start och slut
         class Instruktion
         {
@@ -274,7 +346,7 @@ namespace Breadboard_pc_data_creator
 
 
 
-
+        [Serializable]
         //Class för en nano instruktion det vill säga lagrar information om vad som ska stå på vilken address på de tre eeprommen och vad de olika delarna i addressen är. 
         class MicroInstruktion
         {
@@ -318,6 +390,18 @@ namespace Breadboard_pc_data_creator
         private void tbxAddress_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public static T DeepClone<T>(T obj)
+        {
+            using (var ms = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(ms, obj);
+                ms.Position = 0;
+
+                return (T)formatter.Deserialize(ms);
+            }
         }
     }
 }
