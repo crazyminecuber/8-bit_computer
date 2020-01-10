@@ -123,9 +123,9 @@ if __name__ == "__main__":
     LDB = Instruction("LDB", 2, [MA + RO + BI])
     LDG = Instruction("LDG", 3, [MA + RO + GI])
 
-    STA = Instruction("STA", 4, [RO + MA + RA, AO + RI])
-    STB = Instruction("STB", 5, [RO + MA + RA, BO + RI])
-    STG = Instruction("STG", 6, [RO + MA + RA, GO + RI])
+    STA = Instruction("STA", 4, [RO + MA + RA, AO + RI + RA])
+    STB = Instruction("STB", 5, [RO + MA + RA, BO + RI + RA])
+    STG = Instruction("STG", 6, [RO + MA + RA, GO + RI + RA])
 
     ADD = Instruction("ADD", 7, [MA + RO + BI, UO + AI + FI])
     SUB = Instruction("SUB", 8, [MA + RO + BI, UO + AI + Sub + FI])
