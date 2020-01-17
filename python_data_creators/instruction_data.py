@@ -63,25 +63,26 @@ class Instruction_Flag:
 
     List_flaged_instructions = []
 
-    def __init__(self, name, number, microinstructions, flag):
+    def __init__(self, name, number, microinstructions, flag, set_end=True):
         self.name = name
         self.number = number
-        self.set_micro(microinstructions)
+        self.set_micro(microinstructions, set_end)
         self.flag = flag
         self.adress = number * 2**(nr_step_pins) + flag * 2**(nr_step_pins+nr_instr_pins)
 
         Instruction_Flag.List_flaged_instructions.append(self)
 
-    def get_total_micro(microinstructions):
+    def get_total_micro(microinstructions,set_end):
         micro = START.copy()
         micro.extend(microinstructions)
-        micro.extend(END)
+        if set_end:
+            micro.extend(END)
         while len(micro) < 8:
             micro.append(0)
         return micro
 
-    def set_micro(self, micro):
-        self.micro = Instruction_Flag.get_total_micro(micro)
+    def set_micro(self, micro, set_end):
+        self.micro = Instruction_Flag.get_total_micro(micro, set_end)
 
     def get_bytes_and_adress(self,EEPROM_number):
         ints = []
@@ -100,20 +101,20 @@ class Instruction_Flag:
                 new_list.append(Instruction_Flag("DUM",i,[0],j))
         for instr in Instruction_Flag.List_flaged_instructions:
             new_list[instr.adress // 8] = instr
-        Instruction_Flag.List_flaged_instruction = new_list
+        Instruction_Flag.List_flaged_instructions = new_list
 
 # All will have length 8
 class Instruction:
     List_general_instructions = []
 
-    def __init__(self,name, number, microinstructions):
+    def __init__(self,name, number, microinstructions, set_end=True):
         self.flagged_instructions = []
         for i in range(max_flag):
-            self.flagged_instructions.append(Instruction_Flag(name,number,microinstructions,i))
+            self.flagged_instructions.append(Instruction_Flag(name,number,microinstructions,i, set_end))
         Instruction.List_general_instructions.append(self)
 
-    def flag(self, flag, micro):
-        self.flagged_instructions[flag].set_micro(micro)
+    def flag(self, flag, micro, set_end=True):
+        self.flagged_instructions[flag].set_micro(micro, set_end)
 
             
 if __name__ == "__main__":
@@ -130,15 +131,19 @@ if __name__ == "__main__":
     ADD = Instruction("ADD", 7, [MA + RO + BI, UO + AI + FI])
     SUB = Instruction("SUB", 8, [MA + RO + BI, UO + AI + Sub + FI])
 
-    JMP = Instruction("JMP", 9, [MA + RO + CI])
-    JPZ = Instruction("JPZ", 10, [0] )
-    JPZ .flag(1, [ MA + RO + CI] )
+    JMP = Instruction("JMP", 9, [MA + RO + CI], False)
+    JPZ = Instruction("JPZ", 10, [0])
+    JPZ.flag(1, [ MA + RO + CI], False)
     JPC = Instruction("JPC", 11, [0])
-    JPC .flag(2, [MA + RO + CI] )
+    JPC.flag(2, [MA + RO + CI], False )
     PRG = Instruction("PRG", 12, [MA + RO + GI])
 
     Instruction_Flag.List_flaged_instructions.sort(key=lambda x: x.adress)
     Instruction_Flag.fill_missing()
+
+    print(Instruction_Flag)
+
+
 
     EEPROM0 = get_eeprom(0)
     EEPROM1 = get_eeprom(1)
