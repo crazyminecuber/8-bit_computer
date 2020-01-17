@@ -20,7 +20,7 @@ void sendByte(uint8_t instruction, uint8_t data, uint8_t address){
     digitalWrite(addr7, bitRead(address,6));
     digitalWrite(addr8, bitRead(address,7));
 
-    // Shifts out instruction
+   // Shifts out instruction
     shiftOut(shiftPin, clock, LSBFIRST, instruction);
 
     // Writes instruction
@@ -73,4 +73,4 @@ void setPins(){
   digitalWrite(addrSwitch, LOW);
   digitalWrite(WE, HIGH);
   digitalWrite(datatoggle, LOW);
-} 
+}
