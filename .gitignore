@@ -1,3 +1,5 @@
 *.hex
 __pycache__
 .vscode
+tags
+
