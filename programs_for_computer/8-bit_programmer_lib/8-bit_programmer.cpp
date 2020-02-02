@@ -24,11 +24,11 @@ void sendByte(uint8_t instruction, uint8_t data, uint8_t address){
     shiftOut(shiftPin, clock, LSBFIRST, instruction);
 
     // Writes instruction
-    delay(10);
+    delay(timeBase);
     digitalWrite(WE, LOW);
-    delay(10);
+    delay(timeBase);
     digitalWrite(WE, HIGH);
-    delay(10);
+    delay(timeBase);
 
     // Sets data mode.
     digitalWrite(datatoggle, HIGH);
@@ -37,17 +37,17 @@ void sendByte(uint8_t instruction, uint8_t data, uint8_t address){
     shiftOut(shiftPin, clock, LSBFIRST, data);
 
     // Writes data
-    delay(10);
+    delay(timeBase);
     digitalWrite(WE, LOW);
-    delay(10);
+    delay(timeBase);
     digitalWrite(WE, HIGH);
-    delay(10);
+    delay(timeBase);
 
     // Totaly disables arduino.
     digitalWrite(WE, HIGH);
     digitalWrite(addrSwitch, LOW);
     digitalWrite(datatoggle, LOW);
-    delay(10);
+    delay(timeBase);
 
     // Add to tutal number of added instructions
     nr ++;

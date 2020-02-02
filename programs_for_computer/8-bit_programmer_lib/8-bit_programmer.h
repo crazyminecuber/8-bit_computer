@@ -38,6 +38,9 @@
 #define JPC  11
 #define PRG  12
 
+
+#define timeBase 100
+
 extern uint8_t nr;
 
 void sendByte(uint8_t instruction, uint8_t data, uint8_t address=nr);
