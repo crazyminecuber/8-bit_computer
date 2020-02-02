@@ -63,14 +63,15 @@ class Instruction_Flag:
 
     List_flaged_instructions = []
 
-    def __init__(self, name, number, microinstructions, flag, set_end=True):
+    def __init__(self, name, number, microinstructions, flag, set_end=True, include_in_list=True):
         self.name = name
         self.number = number
         self.set_micro(microinstructions, set_end)
         self.flag = flag
         self.adress = number * 2**(nr_step_pins) + flag * 2**(nr_step_pins+nr_instr_pins)
 
-        Instruction_Flag.List_flaged_instructions.append(self)
+        if include_in_list:
+            Instruction_Flag.List_flaged_instructions.append(self)
 
     def get_total_micro(microinstructions,set_end):
         micro = START.copy()
@@ -94,11 +95,10 @@ class Instruction_Flag:
         return [the_bytes,self.adress]
 
     def fill_missing():
-        #assumes sorted
         new_list = []
         for j in range(2**(nr_flag_pins)):
             for i in range(2**(nr_instr_pins)):
-                new_list.append(Instruction_Flag("DUM",i,[0],j))
+                new_list.append(Instruction_Flag("DUM",i,[0],j, True, False))
         for instr in Instruction_Flag.List_flaged_instructions:
             new_list[instr.adress // 8] = instr
         Instruction_Flag.List_flaged_instructions = new_list
@@ -134,11 +134,13 @@ if __name__ == "__main__":
     JMP = Instruction("JMP", 9, [MA + RO + CI], False)
     JPZ = Instruction("JPZ", 10, [0])
     JPZ.flag(1, [ MA + RO + CI], False)
+    JPZ.flag(3, [ MA + RO + CI], False)
     JPC = Instruction("JPC", 11, [0])
     JPC.flag(2, [MA + RO + CI], False )
+    JPC.flag(3, [MA + RO + CI], False )
     PRG = Instruction("PRG", 12, [MA + RO + GI])
 
-    Instruction_Flag.List_flaged_instructions.sort(key=lambda x: x.adress)
+    #Instruction_Flag.List_flaged_instructions.sort(key=lambda x: x.adress)
     Instruction_Flag.fill_missing()
 
     print(Instruction_Flag)
