@@ -5,9 +5,8 @@
 // Initializes arduino and starts writing
 void setup() {
   setPins();
-  sendByte(NOP, 1);
-  sendByte(LDA, 1);
-  sendByte(ADD, 2);
+  sendByte(LDA, 255);
+  sendByte(ADD, 3);
   sendByte(STA, 4);
   sendByte(LDG, 1);
   sendByte(JMP, 0);

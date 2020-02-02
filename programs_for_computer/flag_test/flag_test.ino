@@ -8,7 +8,7 @@ void setup() {
   sendByte(NOP, 0);
   sendByte(LDA, 8);
   sendByte(SUB, 8);
-  sendByte(JPZ, 4);
+  sendByte(JPZ, 5);
   sendByte(JMP, 0);
   sendByte(LDG, 255);
 
