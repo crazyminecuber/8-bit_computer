@@ -1,7 +1,5 @@
 # 8-bitars dator
 
-Nu känner jag att jag börjar bli trött på den här datorn. Saker som tidigare fungerat, slutar slumpvis fungera. Men jag känner att jag lärt mig välldigt mycket ändå från det här projektet. Alla delar har vid någon tidpunkt fungerat bra i alla fall. Det jag hade problem med sist var att arduinon inte ville ladda de värden i minnet som jag sa åt den att göra och STA verkade inte fungera men har fungerat tidigare. Skärmen har jag alldrig fått att fungera så det kan bli ett framtida projekt.
-
 # Manual
 
 ## Ladda över programm
